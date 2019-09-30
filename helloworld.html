@@ -21,9 +21,9 @@
         /* creación de controlador 
            Mismo nombre de la app indica que el controlador es parte del modulo*/
         helloWorldApp.controller('firstController',[
-            '$scope',
-            function($scope){
-                $scope.appName = 'An App Name';
+            '$scope', 'myConfig', /* declaración de tipo string - fines de minificación */
+            function($scope, myConfig){ /* declaración como objeto - inyectado*/ 
+                $scope.appName = myConfig.applicationName;
             }
         ]);
         /* si scope no es definido no sera visible en la página */
