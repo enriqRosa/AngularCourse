@@ -1,0 +1,41 @@
+<!-- TAREA 1: 
+    - Have an HTML file for the view (i.e. index.html)
+    - Load the Angular library in a script tag
+    - Declare an Angular module
+    - Declare an Angular Controller
+    - Use ng-controller to bind the Controller to the View
+    - Use an Angular Expression to bind the date value to the View
+    - Use the JavaScript Date Object to generate the date.
+    - Use Dependency Injection to get the date value from the constant.
+        
+-->
+
+<!DOCTYPE html>
+<html ng-app="datetimeApp">
+
+<head>
+    <title>Angular Fundamentals</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+        crossorigin="anonymous">
+</head>
+
+<body ng-controller="firstController"> <!-- vincular controlador a la sección de body -->
+    <div class="container">
+        <h2>{{'Module 1 Homework'}}</h2>
+        <h3>{{appName}}"{{date}}"</h3>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script type="text/javascript">
+        var datetimeApp = angular.module('datetimeApp', []);
+        datetimeApp.constant('myDate',{applicationName:'The Current Date is: '});
+           datetimeApp.controller('firstController',[
+            '$scope', 'myDate',
+            function($scope, myDate){
+                $scope.date = Date();
+                $scope.appName = myDate.applicationName; 
+            }
+        ]);
+    </script>
+</body>
+
+</html>
